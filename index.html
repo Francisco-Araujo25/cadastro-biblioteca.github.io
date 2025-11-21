@@ -16,7 +16,6 @@
         <i class="bi bi-book"></i>
         <h1>Sistema de Biblioteca</h1>
       </div>
-      <p class="subtitle">Cadastro de Livros - Adicione novos títulos ao acervo</p>
     </header>
 
     <div class="form-header">
@@ -24,176 +23,215 @@
       <p>Preencha as informações abaixo para adicionar um novo livro</p>
     </div>
 
-    <form class="form" action="php/cadastroLivro.php" method="post" enctype="multipart/form-data">
-      <!-- Informações Básicas -->
+    <form class="form" action="cadastroLivro.php" method="post" enctype="multipart/form-data">
       <div class="form-section">
         <div class="section-header">
-          <i class="bi bi-info-circle"></i>
-          <h3>Informações Básicas</h3>
+          <i class="bi bi-tags"></i>
+          <h3>Classificação do Livro</h3>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="titulo" class="required">Título do Livro</label>
-            <input type="text" id="titulo" name="titulo" placeholder="Digite o título do livro" required>
+            <label for="classificacao" class="required">Classificação</label>
+            <select id="classificacao" name="classificacao" required>
+              <option value="" disabled selected>Selecione...</option>
+              <option value="100" data-color="#8B5E3C">Filosofia</option>
+              <option value="200" data-color="#6B4F3A">Religião</option>
+              <option value="300" data-color="#A49F94">Ciências Sociais</option>
+              <option value="400" data-color="#C97A57">Linguagem</option>
+              <option value="500" data-color="#7A9E7E">Ciências Naturais</option>
+              <option value="600" data-color="#B08B6E">Tecnologia</option>
+              <option value="700" data-color="#D4A373">Artes</option>
+              <option value="800" data-color="#9C6B4F">Literatura</option>
+              <option value="900" data-color="#5C4033">História & Geografia</option>
+            </select>
           </div>
           <div class="form-group">
-            <label for="autor" class="required">Autor</label>
-            <input list="autores" id="autor" name="autor" placeholder="Escolha ou digite o autor" required>
-            <datalist id="autores">
-              <option value="Machado de Assis">
-              <option value="José de Alencar">
-              <option value="Clarice Lispector">
-              <option value="Carlos Drummond de Andrade">
-              <option value="Cecília Meireles">
-              <option value="Graciliano Ramos">
-              <option value="Jorge Amado">
-              <option value="Monteiro Lobato">
-              <option value="Ariano Suassuna">
-              <option value="Paulo Coelho">
-              <option value="João Guimarães Rosa">
-              <option value="Lima Barreto">
-            </datalist>
+            <label for="numero_classificacao" class="required">Número</label>
+            <input type="text" id="numero_classificacao" name="numero_classificacao" placeholder="Ex: 823.91" required>
           </div>
         </div>
 
+
+      </div>
+
+      <div class="section-header">
+        <i class="bi bi-info-circle"></i>
+        <h3>Informações Básicas</h3>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="titulo" class="required">Título do Livro</label>
+          <input type="text" id="titulo" name="titulo" placeholder="Digite o título do livro" required>
+        </div>
+        <div class="form-group">
+          <label for="autor" class="required">Autor</label>
+          <input list="autores" id="autor" name="autor" placeholder="Escolha ou digite o autor" required>
+          <datalist id="autores">
+            <option value="Machado de Assis">
+            <option value="José de Alencar">
+            <option value="Clarice Lispector">
+            <option value="Carlos Drummond de Andrade">
+            <option value="Cecília Meireles">
+            <option value="Graciliano Ramos">
+            <option value="Jorge Amado">
+            <option value="Monteiro Lobato">
+            <option value="Ariano Suassuna">
+            <option value="Paulo Coelho">
+            <option value="João Guimarães Rosa">
+            <option value="Lima Barreto">
+          </datalist>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="ano" class="required">Ano de Publicação</label>
+          <input type="number" id="ano" name="ano" min="1000" max="9999" placeholder="Ex: 1958">
+        </div>
+        <div class="form-group">
+          <label for="isbn" class="required">ISBN</label>
+          <input type="text" id="isbn" name="isbn" pattern="\d{10,13}"
+            placeholder="Digite o código ISBN (10-13 dígitos)" title="Digite 10 a 13 dígitos" required>
+        </div>
+        <div class="form-group">
+          <label for="editora" class="required">Editora</label>
+          <input list="editoras" id="editora" name="editora" placeholder="Nome da editora">
+          <datalist id="editoras">
+            <option value="Companhia das Letras">
+            <option value="Editora Record">
+            <option value="Editora Globo">
+            <option value="Saraiva">
+            <option value="Rocco">
+            <option value="L&PM">
+            <option value="Martins Fontes">
+            <option value="Objetiva">
+            <option value="Intrínseca">
+            <option value="Nova Fronteira">
+          </datalist>
+        </div>
+
+      </div>
+
+      <div class="form-section">
+        <div class="section-header">
+        
+      
         <div class="form-row">
           <div class="form-group">
-            <label for="ano" class="required">Ano de Publicação</label>
-            <input type="number" id="ano" name="ano" min="1000" max="9999" placeholder="Ex: 1958">
-          </div>
-          <div class="form-group">
-            <label for="isbn" class="required">ISBN</label>
-            <input type="text" id="isbn" name="isbn" pattern="\d{10,13}"
-              placeholder="Digite o código ISBN (10-13 dígitos)" title="Digite 10 a 13 dígitos" required>
-          </div>
-          <div class="form-group">
-            <label for="editora" class="required">Editora</label>
-            <input list="editoras" id="editora" name="editora" placeholder="Nome da editora">
-            <datalist id="editoras">
-              <option value="Companhia das Letras">
-              <option value="Editora Record">
-              <option value="Editora Globo">
-              <option value="Saraiva">
-              <option value="Rocco">
-              <option value="L&PM">
-              <option value="Martins Fontes">
-              <option value="Objetiva">
-              <option value="Intrínseca">
-              <option value="Nova Fronteira">
-            </datalist>
+            <label for="estado_livro" class="required">Origem</label>
+            <select id="estado_livro" name="estado_livro" required>
+              <option value="" disabled selected>Selecione...</option>
+              <option value="doacao">Doação</option>
+              <option value="compra">Compra</option>
+              <option value="permuta">Permuta</option>
+            </select>
           </div>
         </div>
       </div>
 
-      <!-- Detalhes do Livro -->
-      <div class="form-section">
-        <div class="section-header">
-          <i class="fas fa-book-open"></i>
-          <h3>Detalhes do Livro</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="valor_copia" class="required">Valor da Cópia</label>
+          <input type="number" id="valor_copia" name="valor_copia" step="0.01" placeholder="Ex: 39.90">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="data" class="required">Data de Publicação</label>
+          <input type="date" id="data" name="data_publicacao">
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="valor_copia" class="required">Valor da Cópia</label>
-            <input type="number" id="valor_copia" name="valor_copia" step="0.01" placeholder="Ex: 39.90">
-          </div>
-          <div class="form-group">
-            <label for="numero_Id" class="required">Número de Identificação</label>
-            <input type="text" id="numero_Id" name="numero_Id" placeholder="Ex: 12345">
-          </div>
+        <div class="form-group">
+          <label for="genero" class="required">Gênero</label>
+          <input list="generos" id="genero" name="genero" placeholder="Ex: Romance, Ficção, etc.">
+          <datalist id="generos">
+            <option value="Romance">
+            <option value="Ficção Científica">
+            <option value="Fantasia">
+            <option value="Mistério">
+            <option value="Suspense">
+            <option value="Drama">
+            <option value="Poesia">
+            <option value="Biografia">
+            <option value="História">
+            <option value="Aventura">
+            <option value="Infantil">
+          </datalist>
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="data" class="required">Data de Publicação</label>
-            <input type="date" id="data" name="data_publicacao">
-          </div>
-          <div class="form-group">
-            <label for="genero" class="required">Gênero</label>
-            <input list="generos" id="genero" name="genero" placeholder="Ex: Romance, Ficção, etc.">
-            <datalist id="generos">
-              <option value="Romance">
-              <option value="Ficção Científica">
-              <option value="Fantasia">
-              <option value="Mistério">
-              <option value="Suspense">
-              <option value="Drama">
-              <option value="Poesia">
-              <option value="Biografia">
-              <option value="História">
-              <option value="Aventura">
-              <option value="Infantil">
-            </datalist>
-          </div>
-          <div class="form-group">
-            <label for="idioma" class="required">Idioma</label>
-            <input list="idiomas" id="idioma" name="idioma" placeholder="Ex: Português">
-            <datalist id="idiomas">
-              <option value="Português">
-              <option value="Inglês">
-              <option value="Espanhol">
-              <option value="Francês">
-              <option value="Alemão">
-              <option value="Italiano">
-              <option value="Japonês">
-              <option value="Chinês">
-              <option value="Russo">
-              <option value="Árabe">
-            </datalist>
-          </div>
-          <div class="form-group">
-            <label for="paginas" class="required">Número de Páginas</label>
-            <input type="number" id="paginas" name="paginas" min="1" placeholder="Ex: 250">
-          </div>
+        <div class="form-group">
+          <label for="idioma" class="required">Idioma</label>
+          <input list="idiomas" id="idioma" name="idioma" placeholder="Ex: Português">
+          <datalist id="idiomas">
+            <option value="Português">
+            <option value="Inglês">
+            <option value="Espanhol">
+            <option value="Francês">
+            <option value="Alemão">
+            <option value="Italiano">
+            <option value="Japonês">
+            <option value="Chinês">
+            <option value="Russo">
+            <option value="Árabe">
+          </datalist>
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="emprestavel">Emprestável</label>
-            <select id="emprestavel" name="emprestavel" class="form-control">
-              <option value="sim">Sim</option>
-              <option value="nao">Não</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="tipo_uso">Tipo de Uso</label>
-            <select id="tipo_uso" name="tipo_uso" class="form-control">
-              <option value="emprestimo">Empréstimo</option>
-              <option value="consulta">Consulta</option>
-            </select>
-          </div>
+        <div class="form-group">
+          <label for="paginas" class="required">Número de Páginas</label>
+          <input type="number" id="paginas" name="paginas" min="1" placeholder="Ex: 250 (min. 48)">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="emprestavel" class="required">Emprestável</label>
+          <select id="emprestavel" name="emprestavel" class="form-control">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+          </select>
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="sala_livro">Sala</label>
-            <input type="text" id="sala_livro" name="sala_livro" placeholder="Ex: Sala 1">
-          </div>
-          <div class="form-group">
-            <label for="estante_livro">Estante</label>
-            <input type="text" id="estante_livro" name="estante_livro" placeholder="Ex: Estante A">
-          </div>
+        <div class="form-group">
+          <label for="tipo_uso" class="required">Tipo de Uso</label>
+          <select id="tipo_uso" name="tipo_uso" class="form-control">
+            <option value="emprestimo">Empréstimo</option>
+            <option value="consulta">Consulta</option>
+          </select>
         </div>
+      </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="descricao">Descrição</label>
-            <textarea id="descricao" name="descricao" placeholder="Breve descrição do livro..."></textarea>
-          </div>
+      <div class="form-row">
+        <div class="form-group" class="required">
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" name="descricao" placeholder="Breve descrição do livro..."></textarea>
         </div>
+      </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="capa">Capa do Livro (Imagem)</label>
-            <div class="file-input-container">
-              <input type="file" id="capa" name="capa" accept="image/*" class="file-input">
-              <label for="capa" class="file-input-label">
-                <i class="fas fa-upload"></i>
-                <span>Selecionar imagem da capa</span>
-              </label>
-            </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="capa">Capa do Livro (Imagem)</label>
+          <div class="file-input-container">
+            <input type="file" id="capa" name="capa" accept="image/*" class="file-input">
+            <label for="capa" class="file-input-label">
+              <i class="fas fa-upload"></i>
+              <span>Selecionar imagem da capa</span>
+            </label>
           </div>
         </div>
       </div>
 
+      <div class="form-row">
+        <div class="form-group">
+          <div class="button-group">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle"></i> Cadastrar Livro</button>
+            <button type="reset" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Cancelar</button>
+          </div>
+        </div>
+    </form>
+  </div>
+</body>
+</html>

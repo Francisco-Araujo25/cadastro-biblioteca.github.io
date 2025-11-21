@@ -1,9 +1,9 @@
     :root {
-      --primary-color: #3498db;
-      --secondary-color: #2980b9;
-      --accent-color: #e74c3c;
+      --primary-color: #2e8fff;
+      --secondary-color: #00255e;
+      --accent-color: #e83925;
       --light-color: #f8f9fa;
-      --dark-color: #2c3e50;
+      --dark-color: #0f0d0d;
       --gray-color: #95a5a6;
       --success-color: #2ecc71;
       --border-radius: 8px;
@@ -32,17 +32,11 @@
       margin: 0 auto;
       padding: 20px;
       border-radius: 20px;
-      
       background: rgba(255, 255, 255, 0.15);
-     
       border: 1px solid rgba(255, 255, 255, 0.3);
-      
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      
       backdrop-filter: blur(12px);
-      
       -webkit-backdrop-filter: blur(12px);
-      
     }
 
     header {
@@ -69,11 +63,6 @@
       margin-bottom: 10px;
     }
 
-    .subtitle {
-      color: var(--gray-color);
-      font-size: 1.1rem;
-    }
-
     .form-container {
       background-color: white;
       border-radius: var(--border-radius);
@@ -86,6 +75,7 @@
       color: white;
       padding: 20px;
       text-align: center;
+      border-radius: 10px;
     }
 
     .form-header h2 {
@@ -164,6 +154,7 @@
       font-size: 1rem;
       transition: var(--transition);
       font-family: inherit;
+      text-align: center;
     }
 
     input:focus,
